@@ -6,7 +6,7 @@
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
-const port = 8080;
+const port = 8080; //change this if port 8080 is already in use.
 const map = {
   '.html': 'text/html',
   '.json': 'application/json',
@@ -18,10 +18,10 @@ const win = {
     1 : 'Big Win',
     2 : 'Small Win',
     3 : 'No Win'
-}
+};
 
 var special = false,
-hostname = '127.0.0.1',
+hostname = '127.0.0.1', //Default host ip address.
 history = {};
 
 // print process.argv
@@ -38,7 +38,7 @@ var server = http.createServer().listen(port, hostname, () => {
 });
 
 server.on('error', () => {
-  console.log('cannot start server user server.js ipAddr');
+  console.log('cannot start server - use node server.js ipAddr');
 });
 
 server.on('request', function(req, res) {
@@ -100,7 +100,7 @@ var readFile = function(fileLocation) {
   if (fs.existsSync(fileLocation)) {
     return fs.readFileSync(fileLocation);
   }
-  console.error('file not found');
+  console.error('file not found' + fileLocation);
   return 'no file found';
 }
 /**
@@ -126,12 +126,3 @@ var getWinStatus = function (result) {
     }
     return win [uniqueValue];
 }
-/*new Promise((resolve, reject) => {
-              setTimeout(() => reject('error'), 3000);
-            }).then(data => {
-              res.writeHead(200, {'Content-Type': 'application/json' });
-              res.end(JSON.stringify({"a": data}));
-            }, data => {
-              res.writeHead(200, {'Content-Type': 'application/json' });
-              res.end(JSON.stringify({"err": data}));
-            })*/
