@@ -1,0 +1,11 @@
+{
+	"background":"BG.png",
+	"btn_spin":"button.png",
+	"btn_spin_disabled":"button_disabled.png",
+	"symbols": [{"id": 0 ,"name":"wild","image":"symbol0.png"},
+		{"id": 1 , "name":"strawbery","image":"symbol1.png"},
+		{"id": 2 , "name":"pineapple","image":"symbol2.png"},
+		{"id": 3 , "name":"lemon","image":"symbol3.png"},
+		{"id": 4 , "name":"pear","image":"symbol4.png"},
+		{"id": 5 , "name":"grapes","image":"symbol5.png"}]
+}
