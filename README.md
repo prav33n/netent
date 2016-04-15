@@ -17,3 +17,7 @@ Enjoy the game
 #Planned Features
 - Keep track of history of game outcomes per user.
 - Add test cases to check the server and client features.
+
+#Compatible Devices and browsers
+- Browsers - Chrome, Firefox, Safari.
+- Mobile : Iphone 6.
