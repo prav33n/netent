@@ -14,6 +14,6 @@ sample program for generating random numbers and calculating a win.
 - Edit the base URL to point to your server.
 Enjoy the game
 
-#Addtional Ideas
-Keep track of history of game outcomes per user.
-Add test cases to check the server and client features.
+#Planned Features
+- Keep track of history of game outcomes per user.
+- Add test cases to check the server and client features.
