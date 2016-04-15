@@ -3,6 +3,7 @@ sample program for generating random numbers and calculating a win.
 
 #Server Deployment
 - Prerequisite - node.js ver 5+.
+- Copy the server folder to desired location.
 - Command Line - node server.js ipAddr.
 - you can also hard code Ip and port of the server in the server.js file.
 
