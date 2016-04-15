@@ -1,4 +1,11 @@
-this.baseUrl = 'http://localhost:8080/';
+
+/**
+ * Author : Praveen
+ * Description: script file that controls the game logic and other values needed in the app.
+ * Usage: node server.js ipAddr.
+ */
+
+this.baseUrl = 'http://localhost:8080/'; //Change the Base URL to server url you are hosting the server script.
 this.httpRequest = function (url) {
 	this._resource = null;
     var xhr = new XMLHttpRequest(),
@@ -47,11 +54,14 @@ var initGame = function() {
 			this.resource = success;
 			loadResources();
 		}.bind(this), function() {
-			alert('SERVER ERROR');
+			alert('SERVER ERROR - Check if the sever is running');
 		}
 	);
 }
 
+/**
+ * Start spinning the carousel and send request to server.
+ */
 this.startSpin = function() {
 	this.spinners = [document.getElementById('image1'), document.getElementById('image2'), document.getElementById('image3')]
 	this.clearResults();
@@ -69,7 +79,7 @@ this.startSpin = function() {
 			}
 			this.resultContainer.textContent = success.winStatus;
 			if (success.special) {
-				this.resultContainer.textContent += '- You WON a multiplier';
+				this.resultContainer.textContent += '- Requesting for win multiplier';
 				this.httpRequest(this.baseUrl+'api/special').then(
 					function(success) {
 						this.multiplier.textContent = 'x '+ success.result;
@@ -85,36 +95,6 @@ this.startSpin = function() {
 			alert('No server response');
 		}
 	);
-	/*this.spinButton.setAttribute('style', '');
-	this.winnerImage.setAttribute('style', '');
-	document.getElementById('spinnerText').textContent = 'SPIN';
-	document.getElementById('spinner').classList.add('flipper');
-	this.resultContainer.textContent = '';
-	this.resultContainer.classList.remove('loose');
-	this.resultContainer.classList.remove('win');
-
-	var symbols = this.resource.symbols || [],
-		start = 0,
-		end = symbols.length-1,
-		selection = Math.floor( Math.random() * ( end + 1 ) );
-
-	console.log('index selected ' + selection, this.selector.selectedIndex);
-
-
-	//update the result after 3 seconds
-	setTimeout(function() {
-		document.getElementById('spinner').classList.remove('flipper');
-		document.getElementById('spinnerText').textContent = '';
-		this.spinButton.setAttribute('style', 'background-image: url('+ this.baseUrl + this.resource.btn_spin+');');
-		this.winnerImage.setAttribute('style', 'background-image: url('+this.baseUrl  + symbols[selection].image+');');
-		if(selection === this.selector.selectedIndex) {
-			this.resultContainer.textContent = 'YOU WON';
-			this.resultContainer.classList.add('win');
-		} else {
-			this.resultContainer.textContent = 'YOU LOOSE';
-			this.resultContainer.classList.add('loose');
-		}
-	}.bind(this),3000);*/
 }
 
 this.finishCurrentSpin = function () {

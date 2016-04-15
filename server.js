@@ -54,7 +54,7 @@ server.on('request', function(req, res) {
     switch(parsedUrl.pathname) {
         case '/api':
             res.writeHead(200, {'Content-Type': map['.html'] });
-            res.end('<html><body>API Documentation <div>/api/spin - get random values </br> /api/history - to see the list of previous outcomes </div></body></html>');
+            res.end('<html><body>API Documentation <div>/api/spin - get random values </br> /api/special - to get the win multipler value </div></body></html>');
             break;
         case '/api/special':
             res.writeHead(200, {'Content-Type':  map['.json'] });
